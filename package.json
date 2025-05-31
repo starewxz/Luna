@@ -6,30 +6,44 @@
   "main": "src/index.jsx",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "antd": "^5.25.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^7.6.1",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
     "@vitejs/plugin-react": "^4.5.0",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.27.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.2.0",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.3",
     "typescript": "3.3.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint ./src"
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/starewxz/keeper.git"
+  },
+  "homepage": "https://starewxz.github.io/keeper"
 }

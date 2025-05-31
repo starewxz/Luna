@@ -1,11 +1,13 @@
-import React from "react";
-import {createRoot} from "react-dom/client";
-import App from "./components/App";
-import "/styles.css";
-import {ThemeProvider} from "./services/theme-service.jsx";
+import { ConfigProvider } from "antd";
+import { ThemeProvider } from './services/theme-service';
+import { createRoot } from 'react-dom/client'
+import './styles.css'
+import Router from "./router";
 
 createRoot(document.getElementById('root')).render(
-    <ThemeProvider>
-        <App />
-    </ThemeProvider>,
-);
+    <ConfigProvider>
+        <ThemeProvider>
+            <Router />
+        </ThemeProvider>
+    </ConfigProvider>
+)
