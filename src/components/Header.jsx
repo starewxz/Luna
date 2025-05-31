@@ -1,13 +1,58 @@
-import React from "react";
 import Switch from "./Switch";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 
-function Header() {
+const Header = ({
+                    title = "LUNA",
+                    subtitle = "by Noterⓒ",
+                    showSwitch = true,
+                    showBackButton = false,
+                    editableTitle = false,
+                    onTitleChange,
+                }) => {
+    const navigate = useNavigate();
+
     return (
-        <header>
-            <h1>Keeper</h1>
-            <Switch />
+        <header className="bg-[#F5F4FA] text-[#1E1E2F] px-4 sm:px-6 py-4 flex items-center justify-between relative">
+
+            <div className="w-10 flex justify-start z-10">
+                {showBackButton && (
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="p-2 rounded-md hover:bg-[#e1d9f7] dark transition"
+                    >
+                        <FontAwesomeIcon icon={faCaretLeft} className="text-2xl text-[#8A63D2] dark" />
+                    </button>
+                )}
+            </div>
+
+            {editableTitle ? (
+                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={onTitleChange}
+                        placeholder="Enter title"
+                        className="bg-transparent border-b border-[#8A63D2] text-[#1E1E2F] focus:outline-none text-xl font-light font-[McLaren] text-center"
+                    />
+                </div>
+            ) : (
+                <div className="flex-1">
+                    <h1 className="text-2xl sm:text-3xl font-light font-[McLaren] tracking-wide">
+                        {title}
+                    </h1>
+                    {subtitle && (
+                        <p className="text-[10px] font-semibold lg:text-[15px] mt-1">{subtitle}</p>
+                    )}
+                </div>
+            )}
+
+            <div className="w-10 flex justify-end z-10">
+                {showSwitch && <Switch />}
+            </div>
         </header>
     );
-}
+};
 
 export default Header;
