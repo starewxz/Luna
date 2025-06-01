@@ -2,6 +2,7 @@ import Switch from "./Switch";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
+import {useEffect, useState} from "react";
 
 const Header = ({
                     title = "LUNA",
@@ -12,9 +13,23 @@ const Header = ({
                     onTitleChange,
                 }) => {
     const navigate = useNavigate();
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className="bg-header-light dark:bg-header-dark text-text-light dark:text-primary-dark px-4 sm:px-6 py-4 flex items-center justify-between relative dark:shadow-[0_0_10px_0_rgba(249,168,38,1)] shadow-violet">
+        <header className={`w-full bg-header-light dark:bg-header-dark text-text-light dark:text-primary-dark px-4 sm:px-6 py-4 flex items-center justify-between dark:shadow-[0_0_10px_0_rgba(249,168,38,1)] shadow-violet header ${scrolled ? "scrolled" : ""}`}>
 
             <div className="w-10 flex justify-start z-10">
                 {showBackButton && (

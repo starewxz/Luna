@@ -13,10 +13,15 @@ body {
 body.dark {
   @apply bg-background-dark text-text-dark;
 }
-
-/* Footer styles */
 footer {
-  @apply absolute text-center bottom-0 w-full h-10;
+  @apply fixed bottom-0 left-0 w-full h-10 flex justify-center items-center bg-background-light dark:bg-background-dark z-50;
+  box-shadow: 13px 4px 9px rgb(138, 99, 210);
+  background-color: rgb(245, 237, 255, 0.8);
+}
+
+.dark footer {
+  @apply shadow-gold;
+  background-color: rgb(30, 30, 47,0.8);
 }
 
 footer p {
@@ -32,13 +37,21 @@ header p {
   text-shadow: 3px 3px 5px rgb(138, 99, 210);
 }
 
-/* Header styles */
 header {
-  @apply px-4 sm:px-6 py-4 flex items-center justify-between relative bg-header-light shadow-md;
+  @apply fixed top-0 left-0 z-50 px-4 sm:px-6 py-4 flex items-center justify-between bg-header-light shadow-md;
 }
 
 .dark header {
-  @apply bg-header-dark text-primary-dark shadow-[0_0_10px_0];
+  @apply fixed top-0 left-0 z-50 bg-header-dark text-primary-dark shadow-[0_0_10px_0];
+}
+
+
+.dark .note {
+  @apply shadow-gold;
+}
+
+.note {
+  @apply shadow-violet;
 }
 
 .dark header input {
@@ -47,4 +60,18 @@ header {
 
 .dark header h1, .dark header p {
   @apply [text-shadow:1px_1px_15px];
+}
+
+.header.scrolled {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(245, 237, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px 0 rgb(232, 140, 255);
+}
+
+.dark .header.scrolled {
+  background-color: rgba(30, 30, 47, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px 0 rgb(255, 175, 118);
 }

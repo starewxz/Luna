@@ -42,14 +42,14 @@ const MainPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col relative">
+        <div className="min-h-screen flex flex-col relative overflow-y-auto">
             <Header />
-            <main className="flex-grow px-4 py-4 w-full max-w-4xl mx-auto gap-4">
+            <main className="flex-grow px-4 py-4 w-full max-w-4xl mx-auto gap-4 pt-[80px] pb-[60px] mt-8">
                 <div className="space-y-4 w-full">
                     {notes.map((note) => (
                         <div
                             key={note.id}
-                            className="bg-white dark:bg-[#1E1E2F] p-4 rounded-xl shadow cursor-pointer hover:shadow-lg transition relative"
+                            className="bg-[#F5F4FA] dark:bg-[#1E1E2F] p-4 rounded-xl cursor-pointer hover:shadow-lg transition relative note"
                             onClick={() => navigate(`/note/${note.id}`)}
                         >
                             <Popconfirm

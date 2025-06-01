@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       boxShadow: {
         "violet": "0 0 8px 0 rgb(138, 99, 210)",
+        "gold": "0 0 8px 0 rgb(249, 168, 38)",
       },
       colors: {
         primary: {
