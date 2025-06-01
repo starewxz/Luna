@@ -85,7 +85,7 @@ const MainPage = () => {
                 draggable={true}
                 className="plus-button bg-primary-light dark:bg-primary-dark text-white hover:!bg-[#644693] dark:hover:!bg-[#d5961c] rounded-full w-14 h-14 flex items-center justify-center fixed bottom-14 right-0 z-50 shadow-lg transition-all"
                 type="primary"
-                onClick={createNewNote} // Changed to call createNewNote
+                onClick={createNewNote}
             >
                 <FontAwesomeIcon icon={faPlus} className="text-xl" />
             </Button>
