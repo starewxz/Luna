@@ -14,15 +14,15 @@ const Header = ({
     const navigate = useNavigate();
 
     return (
-        <header className="bg-[#F5F4FA] text-[#1E1E2F] px-4 sm:px-6 py-4 flex items-center justify-between relative">
+        <header className="bg-header-light dark:bg-header-dark text-text-light dark:text-primary-dark px-4 sm:px-6 py-4 flex items-center justify-between relative dark:shadow-[0_0_10px_0_rgba(249,168,38,1)] shadow-violet">
 
             <div className="w-10 flex justify-start z-10">
                 {showBackButton && (
                     <button
                         onClick={() => navigate(-1)}
-                        className="p-2 rounded-md hover:bg-[#e1d9f7] dark transition"
+                        className="p-2 rounded-md hover:bg-opacity-20 hover:bg-primary-light dark:hover:bg-[#efbe8c] transition-all duration-200"
                     >
-                        <FontAwesomeIcon icon={faCaretLeft} className="text-2xl text-[#8A63D2] dark" />
+                        <FontAwesomeIcon icon={faCaretLeft} className="text-2xl text-primary-light dark:text-primary-dark" />
                     </button>
                 )}
             </div>
@@ -34,7 +34,7 @@ const Header = ({
                         value={title}
                         onChange={onTitleChange}
                         placeholder="Enter title"
-                        className="bg-transparent border-b border-[#8A63D2] text-[#1E1E2F] focus:outline-none text-xl font-light font-[McLaren] text-center"
+                        className=" bg-transparent border-b border-[#8A63D2] text-[#1E1E2F] focus:outline-none text-xl font-light font-[McLaren] text-center"
                     />
                 </div>
             ) : (

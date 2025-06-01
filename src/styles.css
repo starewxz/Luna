@@ -2,71 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
   font-family: "Montserrat", sans-serif;
 }
+
 body {
-  background: #eee;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  @apply bg-background-light text-text-light transition-colors duration-300 ease-in-out;
 }
+
 body.dark {
-  background-color: #121212;
-  color: #fff;
+  @apply bg-background-dark text-text-dark;
 }
 
-body.light {
-  background-color: #ffffff;
-  color: #000;
-}
-body.light footer p {
-  color: rgb(138, 99, 210);
-}
-
-body.dark header {
-  color: #F9A826;
-  box-shadow: 0 0 10px 0 rgb(249, 168, 38);
-  background-color: #1E1E2F;
-}
-
-body.dark header input {
-  color: #F9A826;
-  border-bottom: #F9A826 solid 1px;
-}
-body.dark .dark {
-  color: #F9A826;
-}
-body.dark .dark:hover {
-  background-color: #efd3c0;
-}
-body.dark .plus-button {
-  background-color: #F9A826 !important;
-}
-body.dark .plus-button:hover {
-  background-color: #d5961c !important;
-}
-
-body.light header {
-  box-shadow: 0 0 10px 0 rgb(138, 99, 210);
-}
-body.dark header h1,
-body.dark header p{
-  text-shadow: 1px 1px 15px rgb(249, 168, 38);
-}
-body.light header h1,
-body.light header p {
-  text-shadow: 1px 1px 15px rgb(138, 99, 210);
-}
-
-
+/* Footer styles */
 footer {
-  position: absolute;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+  @apply absolute text-center bottom-0 w-full h-10;
 }
 
 footer p {
-  color: #8A63D2;
+  @apply text-primary-light;
+}
+
+.dark footer p {
+  @apply text-primary-dark;
+}
+
+header h1,
+header p {
+  text-shadow: 3px 3px 5px rgb(138, 99, 210);
+}
+
+/* Header styles */
+header {
+  @apply px-4 sm:px-6 py-4 flex items-center justify-between relative bg-header-light shadow-md;
+}
+
+.dark header {
+  @apply bg-header-dark text-primary-dark shadow-[0_0_10px_0];
+}
+
+.dark header input {
+  @apply text-primary-dark border-b border-primary-dark;
+}
+
+.dark header h1, .dark header p {
+  @apply [text-shadow:1px_1px_15px];
 }
